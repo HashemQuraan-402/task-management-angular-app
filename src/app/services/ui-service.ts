@@ -1,39 +1,27 @@
 import { Injectable } from '@angular/core';
-import{ Observable,BehaviorSubject} from 'rxjs';
-import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
 
-@Injectable(
-    {
-        providedIn: 'root'
-    }
-)
+@Injectable({
+  providedIn: 'root',
+})
 export class UiService {
+  private readonly showAddTask = new BehaviorSubject<boolean>(false);
+  private readonly isHomePage = new BehaviorSubject<boolean>(true);
 
-    private showAddTask = new BehaviorSubject<any>(false);
+  toggleAddTask(): void {
+    this.showAddTask.next(!this.showAddTask.value);
+  }
 
-    toggleAddTask(): void{
-        this.showAddTask.next(!this.showAddTask.value);
-    }
+  onToggleUI(): Observable<boolean> {
+    return this.showAddTask.asObservable();
+  }
 
-    onToggleUI():Observable<any>{
-        return this.showAddTask.asObservable();
-    }
+  toggleRoute(url: string): void {
+    const path = url.split(/[?#]/)[0];
+    this.isHomePage.next(path === '/');
+  }
 
-
-    private isHomePage!: BehaviorSubject<any>;
-
-    constructor(private router: Router) {
-        this.isHomePage = new BehaviorSubject<any>(this.router.url === '/');
-    }
-
-    
-
-    toggleRoute(url: string): void{
-        this.isHomePage.next(url === '/');
-    }
-    
-    onToggleRoute():Observable<any>{
-        return this.isHomePage.asObservable();
-    }
-
+  onToggleRoute(): Observable<boolean> {
+    return this.isHomePage.asObservable();
+  }
 }

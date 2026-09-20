@@ -1,9 +1,12 @@
 <app-add-task (onAddTask)="addTask($event)"></app-add-task>
 
-<app-task-item *ngFor="let taskOfIteration of tasks" [task] = "taskOfIteration"
- (OnDeleteTask)="deleteTask($event)"
-  (onToggleReminder)="toggleReminder(taskOfIteration)"
-  ></app-task-item>
+<p *ngIf="tasks.length === 0" class="empty-state">
+  No tasks yet. Select <strong>Add task</strong> to create your first one.
+</p>
 
-
- 
+<app-task-item
+  *ngFor="let task of tasks"
+  [task]="task"
+  (deleteTask)="deleteTask($event)"
+  (toggleReminder)="toggleReminder($event)"
+></app-task-item>
