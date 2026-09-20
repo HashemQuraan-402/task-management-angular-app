@@ -1,19 +1,40 @@
 <form *ngIf="uiService.onToggleUI() | async" class="add-form" (ngSubmit)="onSubmit()">
   <div class="form-control">
     <label for="text">Task</label>
-    <input type="text" name="text" [(ngModel)]="text" id="text" placeholder="Add Task">
+    <input
+      id="text"
+      type="text"
+      name="text"
+      [(ngModel)]="text"
+      placeholder="For example: Review project documentation"
+      maxlength="100"
+      autocomplete="off"
+      required
+    />
   </div>
+
   <div class="form-control">
-    <label for="day">Day &amp; Time</label>
-    <input type="text" name="day" [(ngModel)]="day" id="day" placeholder="Add Day & Time">
+    <label for="day">Day &amp; time</label>
+    <input
+      id="day"
+      type="text"
+      name="day"
+      [(ngModel)]="day"
+      placeholder="For example: Friday at 2:00 PM"
+      maxlength="80"
+      autocomplete="off"
+      required
+    />
   </div>
+
   <div class="form-control form-control-check">
-    <label for="reminder">Set Reminder</label>
-    <input type="checkbox" name="reminder" [(ngModel)]="reminder" id="reminder">
+    <label for="reminder">Set reminder</label>
+    <input id="reminder" type="checkbox" name="reminder" [(ngModel)]="reminder" />
   </div>
+
   @if (errorMessage) {
     <p class="form-error" role="alert">{{ errorMessage }}</p>
   }
-  <input type="submit" value="Save Task" class="btn btn-block">
-</form>
 
+  <button type="submit" class="btn btn-block">Save task</button>
+</form>

@@ -1,32 +1,29 @@
-import { Component,Input, Output, EventEmitter } from '@angular/core';
-import { Task } from '../../Task';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import { CommonModule } from '@angular/common';
 
+import { Task } from '../../Task';
 
 @Component({
   selector: 'app-task-item',
   standalone: true,
-  imports: [FontAwesomeModule,CommonModule],
+  imports: [FontAwesomeModule],
   templateUrl: './task-item.html',
   styleUrl: './task-item.css',
 })
 export class TaskItem {
+  @Input({ required: true }) task!: Task;
 
-  @Input({required : true}) task!:Task;
-  faTimes = faTimes;
+  @Output() readonly deleteTask = new EventEmitter<Task>();
+  @Output() readonly toggleReminder = new EventEmitter<Task>();
 
-  @Output() OnDeleteTask :EventEmitter<Task> = new EventEmitter();
-  @Output() onToggleReminder :EventEmitter<Task> = new EventEmitter();
+  readonly faTimes = faTimes;
 
-OnDelete(task:Task){
-  this.OnDeleteTask.emit(task);
-}
+  onDelete(): void {
+    this.deleteTask.emit(this.task);
+  }
 
-
-onToggle(task:Task){
-  this.onToggleReminder.emit(task);
-}
-
+  onToggleReminder(): void {
+    this.toggleReminder.emit(this.task);
+  }
 }

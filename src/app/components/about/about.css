@@ -1,0 +1,13 @@
+.about {
+  line-height: 1.7;
+}
+
+.about h2,
+.about p {
+  margin-bottom: 12px;
+}
+
+.about a {
+  color: #176b45;
+  font-weight: 600;
+}

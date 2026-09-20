@@ -1,4 +1,16 @@
-.footerCss {
-    margin-top: 30px;
-    text-align: center;
+.footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #d9e2ec;
+  color: #52606d;
+  text-align: center;
+}
+
+.footer p {
+  margin-bottom: 8px;
+}
+
+.footer a {
+  color: #176b45;
+  font-weight: 600;
 }

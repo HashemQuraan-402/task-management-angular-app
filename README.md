@@ -1,53 +1,47 @@
 # Task Management Angular App
 
-A responsive Angular task tracker with add, delete, and reminder workflows backed by a local JSON API.
+[![CI](https://github.com/HashemQuraan-402/task-management-angular-app/actions/workflows/ci.yml/badge.svg)](https://github.com/HashemQuraan-402/task-management-angular-app/actions/workflows/ci.yml)
 
-## Features
+A responsive Angular task tracker for creating, deleting, and prioritizing everyday tasks through a local REST API.
 
-- View a task list
-- Add and delete tasks
-- Toggle reminder emphasis
-- Show or hide the add-task form
-- About route and reusable standalone components
-- Unit tests for components and services
-- Separate development and production API URLs
+## Screenshots
+
+### Task dashboard
+
+![Task dashboard with reminder controls](docs/screenshots/task-dashboard.png)
+
+### Add-task form
+
+![Task creation form with validation fields](docs/screenshots/add-task-form.png)
+
+## Highlights
+
+- Create and delete tasks
+- Toggle reminder status with accessible controls
+- Show or hide the task form
+- Validate required task information
+- Responsive layout for desktop and mobile screens
+- Typed Angular services and RxJS state
+- Local JSON Server REST API
+- Unit tests for components, services, state, and HTTP requests
+- Automated GitHub Actions test and build workflow
 
 ## Technology
 
-Angular 22, TypeScript, RxJS, Font Awesome, Vitest, and JSON Server.
+- Angular 22
+- TypeScript 6
+- RxJS
+- JSON Server
+- Font Awesome
+- Vitest
+- GitHub Actions
 
-## Run locally
+## Project structure
 
-Prerequisites: Node.js and npm.
-
-1. Install dependencies:
-
-   ```powershell
-   npm ci
-   ```
-
-2. Start the local API in the first terminal:
-
-   ```powershell
-   npm run server
-   ```
-
-   JSON Server reads `db.json` and serves tasks at `http://localhost:5000/tasks`.
-
-3. Start Angular in a second terminal:
-
-   ```powershell
-   npm start
-   ```
-
-4. Open `http://localhost:4200`.
-
-## Validate
-
-```powershell
-npm test -- --watch=false
-npm run build
-```
-
-The production build uses `/api`. A real deployment must route that path to a compatible backend or replace the production environment URL.
-
+- `.github/workflows/ci.yml` — automated tests and production build
+- `src/app/components` — user-interface components
+- `src/app/services` — HTTP and UI-state services
+- `src/environments` — development and production API URLs
+- `db.json` — local demonstration data
+- `angular.json` — Angular workspace configuration
+- `package.json` — scripts and dependencies

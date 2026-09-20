@@ -1,22 +1,22 @@
 {
   "tasks": [
     {
-      "id": "2",
-      "text": "Meeting at School",
-      "day": "May 6th at 2:30pm",
-      "reminder": false
-    },
-    {
-      "id": "3",
-      "text": "GO to work in Globital",
-      "day": "june 30th at 9:30pm",
+      "id": "1",
+      "text": "Review pull request",
+      "day": "Today at 4:00 PM",
       "reminder": true
     },
     {
-      "text": "Arsenal Match",
-      "day": "sep 4th 6:00pm",
-      "reminder": false,
-      "id": "dJTcfFJf8Qo"
+      "id": "2",
+      "text": "Prepare sprint demo",
+      "day": "Tomorrow at 10:30 AM",
+      "reminder": true
+    },
+    {
+      "id": "3",
+      "text": "Update project documentation",
+      "day": "Friday at 2:00 PM",
+      "reminder": false
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
